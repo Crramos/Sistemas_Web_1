@@ -85,15 +85,14 @@
 		</div>
 
 		<!-- profile section -->
-		
+
 		<section class="contact_section layout_padding-bottom">
-			<p>Do you need to sign in? <a href="login.html">Login</a></p>
 			<div class="container">
 				<div class="d-flex flex-column align-items-end">
 					<div class="custom_heading-container">
 						<hr>
 						<h2>
-							DANIEL
+							Sign in
 						</h2>
 					</div>
 				</div>
@@ -103,27 +102,18 @@
 							<form action="">
 								<div class="contact_form-container">
 									<div>
-										<div>
-											<input type="text" placeholder="Daniel Perez García" readonly>
-										</div>
-										<div>
-											<input type="email" placeholder="daniel@gmail.com" readonly>
-										</div>
-										<div>
-											<input type="number" placeholder="666 666 666" readonly>
-										</div>
-										<div class="">
-											<input type="text" placeholder="Métodos de pago" class="message_input" readonly>
-										</div>
-										<div class="mt-5">
-											<button type="submit">
-												Editar información
-											</button>
-										</div>
+										<label for="name">Phone or email:</label>
+										<input type="text" id="name" required>
 									</div>
-
+									<div> 
+										<label for="password">Password:</label>
+										<input type="password" id="password"required>
+									</div>
+									<div>
+										<button id="login" type="submit"><a href="perfil_usuario.html"> Iniciar Sesión </a> </button> 
+									</div>
+									<p>Are you new around here? <a href="register.html">Sign up</a></p>
 								</div>
-
 							</form>
 						</div>
 						<div class="col-md-5">

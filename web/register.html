@@ -85,15 +85,14 @@
 		</div>
 
 		<!-- profile section -->
-		
+
 		<section class="contact_section layout_padding-bottom">
-			<p>Do you need to sign in? <a href="login.html">Login</a></p>
 			<div class="container">
 				<div class="d-flex flex-column align-items-end">
 					<div class="custom_heading-container">
 						<hr>
 						<h2>
-							DANIEL
+							Sign up
 						</h2>
 					</div>
 				</div>
@@ -104,22 +103,35 @@
 								<div class="contact_form-container">
 									<div>
 										<div>
-											<input type="text" placeholder="Daniel Perez García" readonly>
+											<label for="name">First name:</label>
+											<input type="text" id="name" required>
 										</div>
 										<div>
-											<input type="email" placeholder="daniel@gmail.com" readonly>
+											<label for="lastName">Last name:</label>
+											<input type="text" id="lastName" required>
 										</div>
 										<div>
-											<input type="number" placeholder="666 666 666" readonly>
+											<label for="email">E-mail: </label>
+											<input type="email" id="email" placeholder="daniel@gmail.com" required>
 										</div>
-										<div class="">
-											<input type="text" placeholder="Métodos de pago" class="message_input" readonly>
+										<div>
+											<label for="phone">Phone number:</label>
+											<input type="number" id="phone" placeholder="666 666 666" required>
+										</div>
+										<div> 
+											<label for="password">Password:</label>
+											<input type="password" id="password"required>
+										</div>
+										<div> 
+											<label for="passwordC">Confirm password:</label>
+											<input type="password" id="passwordC"required>
 										</div>
 										<div class="mt-5">
 											<button type="submit">
-												Editar información
+												Register
 											</button>
 										</div>
+										<p>Do you already have an account? <a href="login.html">Sign in</a></p>
 									</div>
 
 								</div>
