@@ -101,19 +101,15 @@
               <hr>
             </div>
             <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
+              We are Your Ticket to Entertainment
             </p>
             <div>
-              <a href="">
-                Read More
-              </a>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="images/favicon.png" alt="">
           </div>
         </div>
       </div>
@@ -149,10 +145,21 @@
                     <input type="text" placeholder="Message" class="message_input">
                   </div>
                   <div class="mt-5">
-                    <button type="submit">
-                      send
-                    </button>
+               
+                    <button id="enviar">Send</button>
+                    <div id="mensaje-enviado" style="display: none;">Mensaje enviado</div>
+                    <script>
+                      document.getElementById("enviar").addEventListener("click", function() {
+                        document.getElementById("mensaje-enviado").style.display = "block";
+                        setTimeout(function() {
+                          document.getElementById("mensaje-enviado").style.display = "none";
+                        }, 2000); 
+                      });
+                      </script>
+                    
+
                   </div>
+                  
                 </div>
 
               </div>
@@ -181,7 +188,7 @@
             </div>
             <div class="detail-box">
               <p>
-                +02 1234567890
+                +34 609827744
               </p>
             </div>
           </div>
@@ -193,7 +200,7 @@
             </div>
             <div class="detail-box">
               <p>
-                demo@gmail.com
+                partyplanner@gmail.com
               </p>
             </div>
           </div>
@@ -205,7 +212,7 @@
             </div>
             <div class="detail-box">
               <p>
-                t will be distracted by the readable
+                Av. de Concha Espina, 1, 28036
               </p>
             </div>
           </div>
@@ -214,7 +221,6 @@
     </div>
   </section>
   <!-- end about section -->
-
 
   <!-- info section -->
   <section class="info_section layout_padding">
