@@ -844,3 +844,13 @@ a:focus {
 .ticket p {
   margin: 5px 0;
 }
+#enlace {
+  font-size: 24px; 
+  font-weight: bold;
+  color: #007bff; 
+}
+
+
+
+
+
