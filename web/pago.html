@@ -89,14 +89,21 @@
  <section class="about_section layout_padding">
   <body>
     <div class="container">
-        <h1>Concierto: Nombre del Concierto</h1>
+        <h1 id="textoMostrado"></h1>
         <div class ="row">
-          <div class="img-box">
-            <img src="images/duki.jpg" height = "300px" width="300px" alt="">        
-          </div>
+          <div class="col-md-4">
+            <div class="box">
+             <div class="img-box">
+               <img id="imagenMostrada" width="300px" height="300px" alt=""> 
+              </div>
+            </div> 
+          </div>       
           <div class="col-8">
-            <h5>Descripción del concierto:
-            </h5>
+            <h7 id="descripcionMostrada"></h7>
+          </div>
+          <div class="col-3">
+            <h3>
+              <label class="badge badge-secundary">Precio: 25€</label>
           </div>
           <div class="col-md-5 offset-md-5">
               <h3>
@@ -163,5 +170,21 @@
         alert('¡Has comprado ' + cantidadEntradas + ' entradas! Gracias por tu compra.');
     }
   </script>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var imagenSeleccionada = localStorage.getItem('imagenSeleccionada');
+        var texto = localStorage.getItem("texto");
+        var descripcion = localStorage.getItem("descripcion");
+        
+        if (imagenSeleccionada) {
+            document.getElementById("imagenMostrada").src = imagenSeleccionada;
+            document.getElementById("textoMostrado").textContent = texto;
+            document.getElementById("descripcionMostrada").textContent = descripcion;
+        } else {
+            // Puedes mostrar una imagen predeterminada o un mensaje de error si no se seleccionó ninguna imagen.
+            // Por ejemplo:
+            document.getElementById("imagenMostrada").src = "imagen_por_defecto.jpg";
+        }
+    });
+</script>
 </html>

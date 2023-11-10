@@ -107,8 +107,8 @@
           <div class="box">
             <div class="img-box">
               <div class="action">
-                <a href="pago.html">
-                <img src="images/duki.jpg" height = "300px" width="300px" alt="">
+                <a href="pago.html" onclick="guardarImagen('images/duki.jpg', 'Duki ´s Concert - 8th June 2024', 'Tras cuatro noches históricas en dos de los recintos más importantes de nuestro país, Wizink Center en Madrid y Palau Sant Jordi en Barcelona, y sus históricos cuatro Velez que el año pasado lo reafirmaron como el máximo referente indiscutible del movimiento convocando más de 200.000 espectadores, Duki se convertirá en el primer artista urbano en actuar en un estadio de fútbol en nuestro país en la historia.')">
+                  <img src="images/duki.jpg" height = "300px" width="300px" alt="">
                 </a>
               </div>
             </div>
@@ -130,8 +130,7 @@
                 Duki's Concert - 8th June 2024
               </h4>
               <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
+                Tras cuatro noches históricas en dos de los recintos más importantes de nuestro país, Wizink Center en Madrid y Palau Sant Jordi en Barcelona, y sus históricos cuatro Velez que el año pasado lo reafirmaron como el máximo referente indiscutible del movimiento convocando más de 200.000 espectadores, Duki se convertirá en el primer artista urbano en actuar en un estadio de fútbol en nuestro país en la historia.
               </p>
             </div>
           </div>
@@ -140,8 +139,8 @@
           <div class="box">
             <div class="img-box">
               <div class="action">
-                <a href="pago.html">
-                 <img src="images/liberata.jpg" width="300px" height="300px" alt="">
+                <a href="pago.html" onclick="guardarImagen('images/liberata.jpg', 'LIBERATA - Weekend 09/11-12/11', 'Con una ubicación espléndida en la zona de moda de la noche madrileña, bien comunicada y de fácil aparcamiento. La sala tiene una decoración novedosa pero a la vez cálida,, y un ambiente uniforme y selecto. Liberata ha irrumpido en la noche de la capital convirtiéndose en uno de los locales de moda de esta temporada. Liberata sin duda será una de las mejores fiestas de Nochevieja en Madrid. Un ambiente selecto y un excelente servicio te está esperando para empezar el año con buen pie.')">
+                  <img src="images/liberata.jpg" width="300px" height="300px" alt="">
                 </a>
               </div>
             </div>
@@ -164,8 +163,7 @@
                 09/11-12/11
               </h4>
               <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
+                Con una ubicación espléndida en la zona de moda de la noche madrileña, bien comunicada y de fácil aparcamiento. La sala tiene una decoración novedosa pero a la vez cálida,, y un ambiente uniforme y selecto. Liberata ha irrumpido en la noche de la capital convirtiéndose en uno de los locales de moda de esta temporada. Liberata sin duda será una de las mejores fiestas de Nochevieja en Madrid. Un ambiente selecto y un excelente servicio te está esperando para empezar el año con buen pie.
               </p>
             </div>
           </div>
@@ -174,9 +172,9 @@
           <div class="box">
             <div class="img-box">
               <div class="action">
-                <a href="pago.html">
-              <img src="images/arenal.jpg" width="300px" height="300px" alt="">
-                </a>
+              <a href="pago.html" onclick="guardarImagen('images/arenal.jpg', 'ARENAL SOUND - Summer 2024', 'La organización del Arenal Sound 2024 ha comunicado que regresará a la localidad de Burriana, Castellón, del 30 de julio al 4 de agosto de 2024. El festival Arenal Sound es un festival de música de música independiente, música electrónica y mestizaje, que habitualmente se ha celebrado en la Playa El Arenal, en la localidad de Burriana (provincia de Castellón, Comunidad Valenciana, España) cada verano desde el año 2010. El Arenal Sound, también llamado AS, se caracteriza por su gran afluencia de jóvenes y se diferencia de otros festivales por su cercanía a la playa al tener uno de sus escenarios sobre la misma arena. Por su accesible precio frente a otros festivales, éste se esta convirtiendo en uno de los referentes en la temporada estival nacional.')">
+                <img src="images/arenal.jpg" width="300px" height="300px" alt="">    
+              </a>
               </div>
             </div>
             <div class="action-box">
@@ -197,8 +195,11 @@
                 ARENAL SOUND - Summer 2024
               </h4>
               <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when
-              looking at its layout. The point of using Lorem
+                La organización del Arenal Sound 2024 ha comunicado que regresará a la localidad de Burriana, Castellón, del 30 de julio al 4 de agosto de 2024. <br>
+
+                El festival Arenal Sound es un festival de música de música independiente, música electrónica y mestizaje, que habitualmente se ha celebrado en la Playa El Arenal, en la localidad de Burriana (provincia de Castellón, Comunidad Valenciana, España) cada verano desde el año 2010. <br>
+                
+                El Arenal Sound, también llamado AS, se caracteriza por su gran afluencia de jóvenes y se diferencia de otros festivales por su cercanía a la playa al tener uno de sus escenarios sobre la misma arena. Por su accesible precio frente a otros festivales, éste se esta convirtiendo en uno de los referentes en la temporada estival nacional.
               </p>
             </div>
           </div>
@@ -256,7 +257,14 @@
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script>
+    function guardarImagen(imagen, titulo, descripcion) {
+        localStorage.setItem('imagenSeleccionada', imagen);
+        localStorage.setItem('texto', titulo);
+        localStorage.setItem('descripcion', descripcion);
 
+    }
+</script>
 </body>
 </body>
 
