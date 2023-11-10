@@ -30,6 +30,11 @@
 		<link href="css/style.css" rel="stylesheet" />
 		<!-- responsive style -->
 		<link href="css/responsive.css" rel="stylesheet" />
+
+		<!-- scripts -->
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js" defer></script>
+		<script type="text/javascript" src="js/bootstrap.js" defer></script>
+		<script type="text/javascript" src="js/main.js" defer></script>
 	</head>
 
 	<body>
@@ -56,13 +61,13 @@
 										<a class="nav-link" href="index.html">Home</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="concerts.html">Concerts</a>
+										<a class="nav-link" href="service.html">Concerts</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="clubs.html">Clubs</a>
+										<a class="nav-link" href="portfolio.html">Clubs</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="otherevents.html">Other events</a>
+										<a class="nav-link" href="news.html">Other events</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="about.html">About Us </a>
@@ -85,15 +90,14 @@
 		</div>
 
 		<!-- profile section -->
-		
+
 		<section class="contact_section layout_padding-bottom">
-			<p>Do you need to sign in? <a href="login.html">Login</a></p>
 			<div class="container">
 				<div class="d-flex flex-column align-items-end">
 					<div class="custom_heading-container">
 						<hr>
 						<h2>
-							DANIEL
+							Sign in
 						</h2>
 					</div>
 				</div>
@@ -103,29 +107,19 @@
 							<form action="">
 								<div class="contact_form-container">
 									<div>
-										<div>
-											<input type="text" placeholder="Daniel Perez García" readonly>
-										</div>
-										<div>
-											<input type="email" placeholder="daniel@gmail.com" readonly>
-										</div>
-										<div>
-											<input type="number" placeholder="666 666 666" readonly>
-										</div>
-										<div class="">
-											<input type="text" placeholder="Métodos de pago" class="message_input">
-										</div>
-										
-										<div class="mt-5">
-												<a href="perfil_usuario_editable.html">
-													Editar información
-												</a>
-										</div>
+										<label for="name">Phone or email:</label>
+										<input type="text" id="name" required>
 									</div>
-
+									<div> 
+										<label for="password">Password:</label>
+										<input type="password" id="password"required>
+									</div>
+									<div>
+										<a href="perfil_usuario.html" id="enlace"> Iniciar Sesión </a> 
+									</div>
+									<p>Are you new around here? <a href="register.html">Sign up</a></p>
 								</div>
-
-							</form>
+							</form>	
 						</div>
 						<div class="col-md-5">
 							<div >
@@ -148,11 +142,6 @@
 			</p>
 		</section>
 		<!-- footer section -->
-
-		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.js"></script>
-
-	</body>
 	</body>
 
 </html>

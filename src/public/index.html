@@ -30,7 +30,10 @@
 		<link href="css/style.css" rel="stylesheet" />
 		<!-- responsive style -->
 		<link href="css/responsive.css" rel="stylesheet" />
-		
+		<!-- scripts -->
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js" defer></script>
+		<script type="text/javascript" src="js/bootstrap.js" defer></script>
+		<script type="text/javascript" src="js/main.js" defer></script>
 	</head>
 	<body>
 		<div class="hero_area">
@@ -132,7 +135,7 @@
 						<div class="box">
 							<div class="img-box">
 								<div class="action">
-									<a href="pago.html" onclick="guardarImagen('images/duki.jpg', 'Duki ´s Concert - 8th June 2024', 'Tras cuatro noches históricas en dos de los recintos más importantes de nuestro país, Wizink Center en Madrid y Palau Sant Jordi en Barcelona, y sus históricos cuatro Velez que el año pasado lo reafirmaron como el máximo referente indiscutible del movimiento convocando más de 200.000 espectadores, Duki se convertirá en el primer artista urbano en actuar en un estadio de fútbol en nuestro país en la historia.')">
+									<a href="entrada_evento.html" onclick="guardarImagen('images/duki.jpg', 'Duki ´s Concert - 8th June 2024', 'Tras cuatro noches históricas en dos de los recintos más importantes de nuestro país, Wizink Center en Madrid y Palau Sant Jordi en Barcelona, y sus históricos cuatro Velez que el año pasado lo reafirmaron como el máximo referente indiscutible del movimiento convocando más de 200.000 espectadores, Duki se convertirá en el primer artista urbano en actuar en un estadio de fútbol en nuestro país en la historia.')">
 									<img src="images/duki.jpg" height = "300px" width="300px" alt="">
 									</a>
 								</div>
@@ -391,20 +394,5 @@
 			</p>
 		</section>
 		<!-- footer section -->
-
-		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script>
-    function guardarImagen(imagen, titulo, descripcion) {
-        localStorage.setItem('imagenSeleccionada', imagen);
-        localStorage.setItem('texto', titulo);
-        localStorage.setItem('descripcion', descripcion);
-
-    }
-</script>
-
-</body>
-</body>
-
-
+	</body>
 </html>

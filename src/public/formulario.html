@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<!-- Basic -->
+  <!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
@@ -11,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Chat con el bot</title>
+  <title>About us</title>
 
   
   <!-- Favicon -->
@@ -30,8 +31,23 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+  <!-- scripts -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js" defer></script>
+  <script type="text/javascript" src="js/bootstrap.js" defer></script>
+  <script type="text/javascript" src="js/main.js" defer></script>
+  <script defer>
+    function redirigir() {
+        // Redirige al usuario a "mytickets.html"
+        window.location = "mytickets.html";
+        return false; // Evita que el formulario se envíe normalmente
+    }
+</script>
 </head>
-<body>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -78,43 +94,42 @@
         </nav>
       </div>
     </header>
-    <div class="chat-container">
-        <div id="chat-box">
-            <div class="message-bot">
-                <p>Hola, ¿en qué puedo ayudarte?</p>
-            </div>
-        </div>
-        <input type="text" id="user-input" placeholder="Escribe un mensaje...">
-        <button id="send-button">Enviar</button>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-        const chatBox = document.getElementById("chat-box");
-        const userInput = document.getElementById("user-input");
-        const sendButton = document.getElementById("send-button");
+    <!-- end header section -->
+  </div>
+<section>
+        <h1>Ingresa tu Información Personal</h1>
+        <form action="mytickets.html" method="post" onsubmit="return redirigir();">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+    
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required><br><br>
+    
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required><br><br>
+    
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+    
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+    
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+  <!-- end info_section -->
 
-        sendButton.addEventListener("click", function() {
-        const userMessage = userInput.value;
-            if (userMessage !== "") {
-                addUserMessage(userMessage);
-                botReply("Lo siento, soy un bot de ejemplo y no puedo responder a eso.");
-                userInput.value = "";
-            }
-        });
-
-        function addUserMessage(message) {
-            const userDiv = document.createElement("div");
-            userDiv.textContent = message;
-            chatBox.appendChild(userDiv);
-        }
-
-        function botReply(message) {
-            const botDiv = document.createElement("div");
-            botDiv.classList.add("message-bot");
-            botDiv.textContent = message;
-            chatBox.appendChild(botDiv);
-        }
-        });
-    </script>
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2019 All Rights Reserved By
+      <a href="https://html.design/">Free Html Templates</a>
+    </p>
+  </section>
+  <!-- footer section -->
 </body>
+
 </html>

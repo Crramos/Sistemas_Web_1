@@ -31,6 +31,11 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+
+  <!-- scripts -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js" defer></script>
+  <script type="text/javascript" src="js/bootstrap.js" defer></script>
+  <script type="text/javascript" src="js/main.js" defer></script>
 </head>
 
 <body class="sub_page">
@@ -115,7 +120,6 @@
         </div>
     </div>
   </section>
-</body>
 
   <!-- info section -->
   <section class="info_section layout_padding">
@@ -161,24 +165,5 @@
     </p>
   </section>
   <!-- footer section -->
-
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var imagenSeleccionada = localStorage.getItem('imagenSeleccionada');
-        var texto = localStorage.getItem("texto");
-        var descripcion = localStorage.getItem("descripcion");
-        
-        if (imagenSeleccionada) {
-            document.getElementById("imagenMostrada").src = imagenSeleccionada;
-            document.getElementById("textoMostrado").textContent = texto;
-            document.getElementById("descripcionMostrada").textContent = descripcion;
-        } else {
-            // Puedes mostrar una imagen predeterminada o un mensaje de error si no se seleccionó ninguna imagen.
-            // Por ejemplo:
-            document.getElementById("imagenMostrada").src = "imagen_por_defecto.jpg";
-        }
-    });
-</script>
+</body>
 </html>
