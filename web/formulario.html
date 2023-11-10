@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Mytickets</title>
+  <title>About us</title>
 
   
   <!-- Favicon -->
@@ -84,74 +84,31 @@
     </header>
     <!-- end header section -->
   </div>
-
-  <!-- info section -->
- <section class="about_section layout_padding">
-  <body>
-    <div class="container">
-        <h1 id="textoMostrado"></h1>
-        <div class ="row">
-          <div class="col-md-4">
-            <div class="box">
-             <div class="img-box">
-               <img id="imagenMostrada" width="300px" height="300px" alt=""> 
-              </div>
-            </div> 
-          </div>       
-          <div class="col-8">
-            <h7 id="descripcionMostrada"></h7>
-          </div>
-          <div class="col-3">
-            <h3>
-              <label class="badge badge-secundary">Precio: 25€</label>
-          </div>
-          <div class="col-md-5 offset-md-5">
-              <h3>
-                <label class="badge badge-primary">Cantidad de Entradas:</label>
-                <input type="number" id="quantity" min="1" value="1">
-              </h3>
-              <a href="formulario.html">Comprar Entradas</a>
-          </div>
-        </div>
-    </div>
-  </section>
-</body>
-
-  <!-- info section -->
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="info_social">
-        <div>
-          <a href="">
-            <img src="images/fb.png" alt="">
-          </a>
-        </div>
-        <div>
-          <a href="">
-            <img src="images/twitter.png" alt="">
-          </a>
-        </div>
-        <div>
-          <a href="">
-            <img src="images/linkedin.png" alt="">
-          </a>
-        </div>
-        <div>
-          <a href="">
-            <img src="images/insta.png" alt="">
-          </a>
-        </div>
-      </div>
-      <div>
-        <p>
-          Feel free to reach out to us through our social media!
-        </p>
-      </div>
-    </div>
-  </section>
-
+<section>
+        <h1>Ingresa tu Información Personal</h1>
+        <form action="mytickets.html" method="post" onsubmit="return redirigir();">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+    
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required><br><br>
+    
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required><br><br>
+    
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+    
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+    
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
   <!-- end info_section -->
-
 
   <!-- footer section -->
   <section class="container-fluid footer_section">
@@ -165,20 +122,14 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var imagenSeleccionada = localStorage.getItem('imagenSeleccionada');
-        var texto = localStorage.getItem("texto");
-        var descripcion = localStorage.getItem("descripcion");
-        
-        if (imagenSeleccionada) {
-            document.getElementById("imagenMostrada").src = imagenSeleccionada;
-            document.getElementById("textoMostrado").textContent = texto;
-            document.getElementById("descripcionMostrada").textContent = descripcion;
-        } else {
-            // Puedes mostrar una imagen predeterminada o un mensaje de error si no se seleccionó ninguna imagen.
-            // Por ejemplo:
-            document.getElementById("imagenMostrada").src = "imagen_por_defecto.jpg";
-        }
-    });
+    function redirigir() {
+        // Redirige al usuario a "mytickets.html"
+        window.location = "mytickets.html";
+        return false; // Evita que el formulario se envíe normalmente
+    }
 </script>
+
+</body>
+</body>
+
 </html>
