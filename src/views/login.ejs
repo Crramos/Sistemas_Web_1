@@ -1,0 +1,48 @@
+<%- include("header", {}) %>
+		<!-- profile section -->
+
+		<section class="contact_section layout_padding-bottom">
+			<div class="container">
+				<div class="d-flex flex-column align-items-end">
+					<div class="custom_heading-container">
+						<hr>
+						<h2>
+							Sign in
+						</h2>
+					</div>
+				</div>
+				<div class="layout_padding-top layout_padding2-bottom">
+					<div class="row">
+						<div class="col-md-7">
+							<form action="">
+								<div class="contact_form-container">
+									<form method="post" action="/login">
+										<div>
+											<label for="name">Phone or email:</label>
+											<input type="text" id="name" name="name" required>
+										</div>
+										<div> 
+											<label for="password">Password:</label>
+											<input type="password" id="password" name="password" required>
+										</div>
+									</form>
+									<div>
+										<a href="/perfil_usuario" id="enlace"> Iniciar Sesión </a> 
+									</div>
+									<p>Are you new around here? <a href="/register">Sign up</a></p>
+								</div>
+							</form>	
+						</div>
+						<div class="col-md-5">
+							<div >
+								<img src="images/favicon.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- end profile section -->
+		<%- include("footer", {}) %>

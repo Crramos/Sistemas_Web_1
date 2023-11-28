@@ -8,9 +8,7 @@
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<!-- Site Metas -->
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
-		<meta name="author" content="" />
+		<meta name="author" content="Ana Fraile, Juan Pablo Zurita, Miguel Merino y Carlos Ramos" />
 
 		<title>PARTYPLANNER - Home</title>
 
@@ -43,7 +41,11 @@
 			<header class="header_section">
 				<div class="container-fluid">
 					<nav class="navbar navbar-expand-lg custom_nav-container ">
+<<<<<<< Updated upstream:src/public/login.html
 						<a class="navbar-brand" href="index.html">
+=======
+						<a class="navbar-brand" href="/">
+>>>>>>> Stashed changes:src/views/header.ejs
 							<img src="images/favicon.png" alt="">
 							<span>
 								PARTYPLANNER
@@ -61,7 +63,11 @@
 										<a class="nav-link" href="index.html">Home</a>
 									</li>
 									<li class="nav-item">
+<<<<<<< Updated upstream:src/public/login.html
 										<a class="nav-link" href="service.html">Concerts</a>
+=======
+										<a class="nav-link" href="/clubs">Clubs</a>
+>>>>>>> Stashed changes:src/views/header.ejs
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="portfolio.html">Clubs</a>
@@ -69,6 +75,7 @@
 									<li class="nav-item">
 										<a class="nav-link" href="news.html">Other events</a>
 									</li>
+									<% if (user) { %>
 									<li class="nav-item">
 										<a class="nav-link" href="about.html">About Us </a>
 									</li>
@@ -78,6 +85,11 @@
 									<li class="nav-item">
 										<a class="nav-link" href="perfil_usuario.html">Profile <span class="sr-only">(current)</span></a>
 									</li>
+									<% } else { %>
+									<li class="nav-item">
+										<a class="nav-link" href="/login">Inicio Sesion/Registro</a>
+									</li>
+									<% } %>
 								</ul>
 							</div>
 							<!---- <div class="quote_btn-container  d-flex justify-content-center">
