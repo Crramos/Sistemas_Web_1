@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
+/* GET Ticket page. */
 router.get('/', function(req, res, next) {
-  res.render('entrada_evento' /*, { title: 'Express' }*/);
+  res.render('entrada_evento' , { title: 'Entrada Evento' });
 });
 
 module.exports = router;

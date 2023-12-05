@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
+/* GET Formulario de Compra page. */
 router.get('/', function(req, res, next) {
-  res.render('formulario' /*, { title: 'Express' }*/);
+  res.render('formulario' , { title: 'Formulario de Compra' });
 });
 
 module.exports = router;
