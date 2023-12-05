@@ -12,7 +12,7 @@
 		<meta name="description" content="" />
 		<meta name="author" content="" />
 
-		<title>PARTYPLANNER - Home</title>
+		<title><%= title %></title>
 
 		<!-- Favicon -->
 		<link rel ="icon" href="images/favicon.png" type="image/png">
@@ -66,12 +66,18 @@
 									<li class="nav-item">
 										<a class="nav-link" href="/about">About Us </a>
 									</li>
+									<% if (user) { %>
 									<li class="nav-item">
 										<a class="nav-link" href="/myTickets">My tickets</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="/profile">Profile</a>
 									</li>
+									<% } else { %>
+										<li class="nav-item">
+											<a class="nav-link" href="/login">Login/Register</a>
+										</li>
+									<% } %>
 								</ul>
 							</div>
 							<!---- <div class="quote_btn-container  d-flex justify-content-center">
