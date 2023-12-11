@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-  secret: "La frase que querais",
+  secret: "Hola",
   resave: false,
   saveUninitialized: true
 }));

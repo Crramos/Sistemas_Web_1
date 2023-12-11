@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async (req, res) => {
-  const user = req.body.user;
-  if(await database.user.isLoginRight(user, req.body.pass)){
+  const user = req.body.name;
+  if(await database.user.isLoginRight(user, req.body.password)){
     req.session.user = {username: user};
     req.session.message = "¡Login correcto!"
     res.redirect("/");
