@@ -20,3 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("imagenMostrada").src = "imagen_por_defecto.jpg";
     }
 });
+
+function validateForm() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("passwordC").value;
+
+    if (password !== confirmPassword) {
+        return false; // Evita que el formulario se envíe si las contraseñas no coinciden
+    }
+
+    return true; // Envía el formulario si las contraseñas coinciden
+}

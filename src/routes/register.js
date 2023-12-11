@@ -8,6 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async (req, res) => {
+  if (!req.body.isValid) {
+    // Si el formulario no es válido, redirige de vuelta al formulario de registro
+    req.session.error = "Las contraseñas no coinciden";
+    return res.redirect("register");
+}
   const user = req.body.name;
   const lastName = req.body.lastName;
   const email = req.body.email;
