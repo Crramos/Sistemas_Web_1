@@ -4,25 +4,35 @@ users = {};
 
 users.data = {};
 
-users.generateHash = function(password, callback){
-    bcrypt.hash(password, 10, callback);
-}
-
 users.comparePass = async function(password, hash){
     return await bcrypt.compare(password, hash);
 }
 
-users.register = function(username, password){
-    if(users.data.hasOwnProperty(username)){
-        throw new Error(`Ya existe el usuario ${username}.`);
-    }
-    users.generateHash(password, function(err, hash){
-        if(err){
-            throw new Error(`Error al generar el hash de ${username}.`);
-        }
-        users.data[username] = {username, hash, last_Login: new Date().toISOString};
+users.generateHash = function(password) {
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(password, 10, (err, hash) => {
+            if (err) {
+                reject(err); 
+            } else {
+                resolve(hash);
+            }
+        });
     });
-}
+};
+
+users.register = async function(email, password, username, phone, lastName){
+    if(users.data.hasOwnProperty(email)){
+        throw new Error(`Ya está enlazado al email: ${email}`);
+    }
+    try {
+        const hash = await users.generateHash(password);
+        users.data[email] = {email, hash, phone, username, lastName, last_Login: new Date().toISOString };
+        return true;
+    } catch (error) {
+        throw new Error(`Error al generar el hash de ${username}: ${error.message}`);
+    }
+};
+
 
 users.isLoginRight = async function(username, password){
     if(!users.data.hasOwnProperty(username)){
