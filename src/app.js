@@ -31,6 +31,19 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use((req,res,next) => {
+  const message = req.session.message;
+  const error = req.session.error;
+  delete req.session.message;
+  delete req.session.error;
+  res.locals.message = "";
+  res.locals.error = "";
+  if(message) res.locals.message = `<p>${message}</p>`;
+  if(error) res.locals.error = `<p>${error}</p>`;
+  next();
+});
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

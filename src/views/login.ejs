@@ -14,22 +14,18 @@
 				<div class="layout_padding-top layout_padding2-bottom">
 					<div class="row">
 						<div class="col-md-7">
-							<form action="">
 								<div class="contact_form-container">
 									<div>
-										<label for="name">Phone or email:</label>
-										<input type="text" id="name" name="name" required>
-									</div>
-									<div> 
-										<label for="password">Password:</label>
-										<input type="password" id="password" name="password" required>
-									</div>
-									<div>
-										<a href="/" id="enlace"> Iniciar Sesión </a> 
+										<form method="post" action="login">
+											<label for="name">Phone or email:</label>
+											<input type="text" id="name" name="name" required> <br>
+											<label for="password">Password:</label>
+											<input type="password" id="password" name="password" required><br>
+											<button type="submit">Submit</button>
+										</form>
 									</div>
 									<p>Are you new around here? <a href="/register">Sign up</a></p>
 								</div>
-							</form>	
 						</div>
 						<div class="col-md-5">
 							<div >
