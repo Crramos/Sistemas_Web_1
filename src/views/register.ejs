@@ -14,8 +14,8 @@
 				<div class="layout_padding-top layout_padding2-bottom">
 					<div class="row">
 						<div class="col-md-7">
-							<form method="post" action="/register" onsubmit="validateForm()">
 								<div class="contact_form-container">
+									<form method="post" action="register">
 											<label for="name">First name:</label>
 											<input type="text" id="name" name="name" required><br>
 											<label for="lastName">Last name:</label>
@@ -27,15 +27,15 @@
 											<label for="password">Password:</label>
 											<input type="password" id="password" name="password" required><br>
 											<label for="passwordC">Confirm password:</label>
-											<input type="password" id="passwordC" required><br>
+											<input type="password" id="passwordC" name="passwordC" required><br>
 										<div class="mt-5">
 											<button type="submit">
 												Register
 											</button>
 										</div>
+									</form>
 										<p>Do you already have an account? <a href="/login">Sign in</a></p>
 								</div>
-							</form>
 						</div>
 						<div class="col-md-5">
 							<div >

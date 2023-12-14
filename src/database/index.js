@@ -6,7 +6,7 @@ database.event = require('./models/event.model');
 function initializeUsers(){
     const NAMES = ["carlos", "juan pablo", "miguel", "ana"];
     NAMES.forEach(function(username){
-        database.user.register(username, "12345", "1234", username, "hola");
+        database.user.register(username, "12345", "name", "123456", "apellido");
     });
 }
 

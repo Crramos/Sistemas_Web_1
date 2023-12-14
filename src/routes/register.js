@@ -8,23 +8,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async (req, res) => {
-  if (!req.body.isValid) {
-    // Si el formulario no es válido, redirige de vuelta al formulario de registro
+  if (req.body.password != req.body.passwordC) {
     req.session.error = "Las contraseñas no coinciden";
     return res.redirect("register");
-}
-  const user = req.body.name;
-  const lastName = req.body.lastName;
-  const email = req.body.email;
-  const phone = req.body.phone;
-  try{
-      await database.user.register(email, req.body.password, user, phone, lastName)
+  }else{
+    const name = req.body.name;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    try{
+      await database.user.register(email, req.body.password, name, phone, lastName)
       req.session.message = "¡Registro correcto!"
       res.redirect("login");
-  }catch(error){
+    }catch(error){
       req.session.error = error.message;
       res.redirect("register");
     }
+}
 });
 
 module.exports = router;
