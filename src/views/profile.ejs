@@ -8,8 +8,8 @@
 						<div class="custom_heading-container">
 							<hr>
 							<h2>
-								<input type="text" name="name" readonly><%= name %>
-								<input type="text" name="lastName" readonly> <%= lastName %>
+								<input type="text" name="name" value = '<%= name %>'' readonly>
+								<input type="text" name="lastName" value = "<%= lastName %>"readonly> 
 							</h2>
 						</div>
 					</div>
@@ -18,10 +18,10 @@
 							<div class="col-md-7">
 								<div class="contact_form-container">
 									<div>
-											<input type="email" name="email" readonly><%= email %>
+											<input type="email" name="email" value = "<%= email %>" readonly>
 									</div>
 										<div>
-											<input type="tel" name="phone" readonly><%= phone %>
+											<input type="text" name="phone" value = "<%= phone %>" readonly>
 										</div>
 								</div>
 							</div>

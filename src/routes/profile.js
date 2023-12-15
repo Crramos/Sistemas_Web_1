@@ -1,14 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const database = require('../database');
+const sequelize = require('../sequelize');
 
 /* GET profile page. */
 router.get('/', async function(req, res, next) {
-  const email = req.session.user;
-  const phone = await database.user.getPhone(email);
-  const name = await database.user.getName(email);
-  const lastName = await database.user.getLastName(email);
-  res.render('profile' , { title: 'Profile', user:req.session.user, email, phone, name, lastName});
+  const email = req.session.user.username
+  try {
+    const user = await sequelize.models.user.findOne({ where:{email: email}});
+    if (user) {
+        const name = user.name;
+        const lastName = user.lastName;
+        const phone = user.phone;
+        res.render('profile' , { title: 'Profile', user: req.session.user, email, phone, name, lastName});
+    } else {
+        console.log('Usuario no encontrado.');
+    }
+} catch (error) {
+    console.error('Error al buscar el usuario:', error);
+}
 });
 
 module.exports = router;

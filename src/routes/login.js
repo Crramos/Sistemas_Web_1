@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const database = require('../database');
+const sequelize = require('../sequelize');
+const bcrypt = require('bcrypt');
 
 /* GET login page. */
 router.get('/', function(req, res, next) {
@@ -8,14 +9,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async (req, res) => {
-  const user = req.body.name;
-  if(await database.user.isLoginRight(user, req.body.password)){
-    req.session.user = {username: user};
-    req.session.message = "¡Login correcto!"
-    res.redirect("/");
-  } else {
+  const email = req.body.name;
+  const user = await sequelize.models.user.findOne({where: {email: email}});
+  if(user){
+    bcrypt.compare(req.body.password, user.password, function(err, result){
+      if (result){// password correcto
+        req.session.user = {username: user.email};
+        req.session.message = "¡Login correcto!"
+        res.redirect("/");
+      } else {
+        req.session.error = "Incorrect password.";
+        res.redirect("/login");
+      }
+    });
+  }else{
     req.session.error = "Incorrect username or password.";
     res.redirect("login");
   }
 });
+
 module.exports = router;

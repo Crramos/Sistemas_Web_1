@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const database = require('../database');
+const sequelize = require('../sequelize');
+const bcrypt = require('bcrypt');
 
 /* GET register page. */
 router.get('/', function(req, res, next) {
@@ -8,20 +9,22 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async (req, res) => {
-  if (req.body.password != req.body.passwordC) {
+  const name = req.body.name;
+  const lastName = req.body.lastName;
+  const email = req.body.email;
+  const phone = req.body.phone;
+  if (req.body.password!= req.body.passwordC) {
     req.session.error = "Las contraseñas no coinciden";
     return res.redirect("register");
   }else{
-    const name = req.body.name;
-    const lastName = req.body.lastName;
-    const email = req.body.email;
-    const phone = req.body.phone;
-    try{
-      await database.user.register(email, req.body.password, name, phone, lastName)
+    const password = await bcrypt.hash(req.body.password, 10);
+    const user = await sequelize.models.user.findOne({where: {email}});
+    if(!user){
+      const newUser = await sequelize.models.user.create({email, password, phone, name, lastName});
       req.session.message = "¡Registro correcto!"
       res.redirect("login");
-    }catch(error){
-      req.session.error = error.message;
+    }else{
+      req.session.error = "El correo ya está en uso";
       res.redirect("register");
     }
 }
