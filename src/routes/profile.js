@@ -13,10 +13,12 @@ router.get('/', async function(req, res, next) {
         const phone = user.phone;
         res.render('profile' , { title: 'Profile', user: req.session.user, email, phone, name, lastName});
     } else {
-        console.log('Usuario no encontrado.');
+        req.session.error = "Usuario no encontrado.";
+        res.redirect("/");
     }
 } catch (error) {
-    console.error('Error al buscar el usuario:', error);
+    req.session.error= "Error al buscar el usuario:";
+    res.redirect("/");
 }
 });
 
