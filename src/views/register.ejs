@@ -15,7 +15,7 @@
 					<div class="row">
 						<div class="col-md-7">
 								<div class="contact_form-container">
-									<form method="post" action="register">
+									<form method="post" action="register" onsubmit="return validaedad(document.getElementById('edad').value)">
 											<label for="name">First name:</label>
 											<input type="text" id="name" name="name" required><br>
 											<label for="lastName">Last name:</label>
@@ -24,6 +24,8 @@
 											<input type="email" id="email" name="email" required><br>
 											<label for="phone">Phone number:</label>
 											<input type="tel" id="phone" name="phone" required><br>
+											<label for="edad">Fecha de nacimiento:</label>
+											<input type="date" id="edad" name="edad" required><br>
 											<label for="password">Password:</label>
 											<input type="password" id="password" name="password" required minlength="8" ><br>
 											<label for="passwordC">Confirm password:</label>
@@ -46,7 +48,6 @@
 				</div>
 			</div>
 		</section>
-
 
 		<!-- end profile section -->
 		<%- include("footer", {}) %>
