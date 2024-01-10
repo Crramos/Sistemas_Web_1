@@ -116,13 +116,13 @@
             </div>
           </div>
         </a>
-        <a href="">
-          <div class="item ">
+        <a href="" id="emailLink">
+          <div class="item">
             <div class="img-box box-3">
-
+        
             </div>
             <div class="detail-box">
-              <p>
+              <p id="emailDestinatario">
                 partyplanner@gmail.com
               </p>
             </div>
@@ -143,6 +143,18 @@
       </div>
     </div>
   </section>
+  <script>
+    document.getElementById("emailLink").addEventListener("click", function () {
+      // Obtiene la dirección de correo electrónico del destinatario
+      var destinatario = document.getElementById("emailDestinatario").innerText;
+  
+      // Construye el enlace "mailto" con la dirección del destinatario
+      var mailtoLink = "mailto:" + destinatario;
+  
+      // Asigna el enlace "mailto" al atributo href del enlace
+      this.href = mailtoLink;
+    });
+  </script>
 
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
   <df-messenger
@@ -152,6 +164,7 @@
     agent-id="01518210-7115-4f58-b7c2-170579062503"
     language-code="es"
   ></df-messenger>
+  
   
   <!-- end about section -->
   <%- include("footer", {}) %>
