@@ -29,36 +29,21 @@ var server = http.createServer(app);
 const messageHistory = [];
 const io = new Server(server); 
 /* Evento de conexión */
-io.on('connection', (socket) => {      
+const messages = [];
+io.on('connection', (socket) => {
   console.log('a user connected');
-
-  socket.on('setUsername', (username) => {
-    socket.username = username;
+  socket.emit('loadMessages', messages);
+  socket.on('chat', (msg)=>{
+      console.log("Mensaje recibido del cliente: " + msg);
+      messages.push({username: msg.username, message:msg.message});
+      io.emit('chat',  { username: msg.username, message: msg.message });
   });
 
-  // Escuchar el evento 'chat'
-   // Escuchar el evento 'chat'
-   socket.on('chat', (msg) => {
-    const user = socket.username || 'Unknown User';
-    console.log(`Mensaje recibido de ${user}: ${msg}`);
-    
-    const fullMessage = `${user}: ${msg}`;
-    messageHistory.push(fullMessage);
-
-    // Limitar el historial a, por ejemplo, los últimos 50 mensajes
-    if (messageHistory.length > 50) {
-        messageHistory.shift(); // Eliminar el mensaje más antiguo
-    }
-
-    io.emit('chat', fullMessage); // Broadcast solo el contenido del mensaje
-  });
-socket.emit('messageHistory', messageHistory);
-
-  /* Evento de desconexión */
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+      console.log('user disconnected');
   });
 });
+
 /**
  * Listen on provided port, on all network interfaces.
  */

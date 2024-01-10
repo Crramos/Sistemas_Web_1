@@ -30,6 +30,10 @@
 		<!-- responsive style -->
 		<link href="css/responsive.css" rel="stylesheet" />
 		<!-- scripts -->
+		<% if(user) { %>
+			<script src="/socket.io/socket.io.js" defer></script>
+			<script src="/js/chat.js" defer></script>
+		<% }%>
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js" defer></script>
 		<script type="text/javascript" src="js/bootstrap.js" defer></script>
 		<script type="text/javascript" src="js/main.js" defer></script>
