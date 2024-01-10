@@ -33,8 +33,8 @@
                 <a href="">
                   <img src="images/comment.png" alt="">
                 </a>
-                <a href="">
-                  <img src="images/share.png" alt="">
+                <a href="#" id="shareLink">
+                  <img src="images/share.png" alt="Compartir">
                 </a>
               </div>
             </div>
@@ -120,6 +120,28 @@
       </div>
     </div>
   </section>
+  <script>
+    // Obtén la referencia al elemento de la imagen
+    const shareLink = document.getElementById('shareLink');
+
+    // Agrega un evento de clic a la imagen
+    shareLink.addEventListener('click', () => {
+      // Verifica si la API Web Share está disponible en el navegador
+      if (navigator.share) {
+        // Utiliza la API Web Share para abrir el menú "Compartir con"
+        navigator.share({
+          title: 'Título del recurso compartido',
+          text: 'Descripción del recurso compartido',
+          url: 'URL del recurso compartido'
+        })
+        .then(() => console.log('Recurso compartido con éxito'))
+        .catch((error) => console.error('Error al compartir:', error));
+      } else {
+        // Si la API Web Share no está disponible, puedes proporcionar una alternativa
+        alert('La función de compartir no está disponible en este navegador.');
+      }
+    });
+  </script>
 
   <!-- end news section -->
   <%- include("footer", {}) %>
