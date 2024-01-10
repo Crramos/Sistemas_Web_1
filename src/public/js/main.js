@@ -44,3 +44,5 @@ function validaedad (fecha_naci) {
 	alert("Debes ser mayor de edad para registrarte.")
     return false;
 	}
+
+    

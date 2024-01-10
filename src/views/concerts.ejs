@@ -27,8 +27,8 @@
             </div>
             <div class="action-box">
               <div class="action">
-                <a href="">
-                  <img src="images/like.png" alt="">
+                <a href="#" id="likeLink">
+                  <img src="images/like.png" alt="Me gusta">
                 </a>
                 <a href="">
                   <img src="images/comment.png" alt="">
@@ -36,6 +36,7 @@
                 <a href="#" id="shareLink">
                   <img src="images/share.png" alt="Compartir">
                 </a>
+                <p id="likeCount">0 Me gusta</p>
               </div>
             </div>
             <div class="detail-box">
@@ -48,98 +49,63 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <div class="action">
-                <a href="/entrada_evento" onclick="guardarImagen('images/plk_mazo.jpg', 'PLK - Mazo Madrid 16/11/2023', 'Con Las Ligas Menores se iniciará este viernes la nueva edición de Mazo Madriz, ciclo que se lleva a cabo en las salas más emblemáticas de la capital al que ahora se suman artistas como LaTorre, Atención Tsunami, Kora y otros.')">
-              <img src="images/plk_mazo.jpg" width="300px" height="300px" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="action-box">
-              <div class="action">
-                <a href="">
-                  <img src="images/like.png" alt="">
-                </a>
-                <a href="">
-                  <img src="images/comment.png" alt="">
-                </a>
-                <a href="">
-                  <img src="images/share.png" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="detail-box">
-              <h4>
-                PLK - Mazo Madrid<br> 
-                16/11/2023
-              </h4>
-              <p>
-                Con Las Ligas Menores se iniciará este viernes la nueva edición de Mazo Madriz, ciclo que se lleva a cabo en las salas más emblemáticas de la capital al que ahora se suman artistas como LaTorre, Atención Tsunami, Kora y otros.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <div class="action">
-                <a href="/entrada_evento" onclick="guardarImagen('images/arenal.jpg', 'ARENAL SOUND - Summer 2024', 'La organización del Arenal Sound 2024 ha comunicado que regresará a la localidad de Burriana, Castellón, del 30 de julio al 4 de agosto de 2024. El festival Arenal Sound es un festival de música de música independiente, música electrónica y mestizaje, que habitualmente se ha celebrado en la Playa El Arenal, en la localidad de Burriana (provincia de Castellón, Comunidad Valenciana, España) cada verano desde el año 2010. El Arenal Sound, también llamado AS, se caracteriza por su gran afluencia de jóvenes y se diferencia de otros festivales por su cercanía a la playa al tener uno de sus escenarios sobre la misma arena. Por su accesible precio frente a otros festivales, éste se esta convirtiendo en uno de los referentes en la temporada estival nacional.')">
-                  <img src="images/arenal.jpg" width="300px" height="300px" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="action-box">
-              <div class="action">
-                <a href="">
-                  <img src="images/like.png" alt="">
-                </a>
-                <a href="">
-                  <img src="images/comment.png" alt="">
-                </a>
-                <a href="">
-                  <img src="images/share.png" alt="">
-                </a>
-              </div>
-            </div>
-            <div class="detail-box">
-              <h4>
-                ARENAL SOUND - Summer 2024
-              </h4>
-              <p>
-                La organización del Arenal Sound 2024 ha comunicado que regresará a la localidad de Burriana, Castellón, del 30 de julio al 4 de agosto de 2024. <br>
-
-                El festival Arenal Sound es un festival de música de música independiente, música electrónica y mestizaje, que habitualmente se ha celebrado en la Playa El Arenal, en la localidad de Burriana (provincia de Castellón, Comunidad Valenciana, España) cada verano desde el año 2010. <br>
-                
-                El Arenal Sound, también llamado AS, se caracteriza por su gran afluencia de jóvenes y se diferencia de otros festivales por su cercanía a la playa al tener uno de sus escenarios sobre la misma arena. Por su accesible precio frente a otros festivales, éste se esta convirtiendo en uno de los referentes en la temporada estival nacional.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
   <script>
-    // Obtén la referencia al elemento de la imagen
     const shareLink = document.getElementById('shareLink');
 
+// Agrega un evento de clic a la imagen
+shareLink.addEventListener('click', () => {
+  // Verifica si la API Web Share está disponible en el navegador
+  if (navigator.share) {
+    // Utiliza la API Web Share para abrir el menú "Compartir con"
+    navigator.share({
+      title: 'Título del recurso compartido',
+      text: 'Descripción del recurso compartido',
+      url: 'URL del recurso compartido'
+    })
+    .then(() => console.log('Recurso compartido con éxito'))
+    .catch((error) => console.error('Error al compartir:', error));
+  } else {
+    // Si la API Web Share no está disponible, puedes proporcionar una alternativa
+    alert('La función de compartir no está disponible en este navegador.');
+  }
+});
+  </script>
+  <script>
+    function getLikeCount() {
+      return parseInt(localStorage.getItem('likeCounter')) || 0;
+    }
+
+    // Función para guardar el contador de Me gusta en el almacenamiento local
+    function saveLikeCount(count) {
+      localStorage.setItem('likeCounter', count);
+    }
+
+    // Inicializa el contador de Me gusta desde el almacenamiento local
+    let likeCounter = getLikeCount();
+
+    // Obtén la referencia al elemento de la imagen
+    const likeLink = document.getElementById('likeLink');
+
+    // Obtén la referencia al elemento del contador
+    const likeCountElement = document.getElementById('likeCount');
+
+    // Actualiza la visualización del contador
+    likeCountElement.textContent = likeCounter === 1 ? '1 Me gusta' : `${likeCounter} Me gusta`;
+
     // Agrega un evento de clic a la imagen
-    shareLink.addEventListener('click', () => {
-      // Verifica si la API Web Share está disponible en el navegador
-      if (navigator.share) {
-        // Utiliza la API Web Share para abrir el menú "Compartir con"
-        navigator.share({
-          title: 'Título del recurso compartido',
-          text: 'Descripción del recurso compartido',
-          url: 'URL del recurso compartido'
-        })
-        .then(() => console.log('Recurso compartido con éxito'))
-        .catch((error) => console.error('Error al compartir:', error));
-      } else {
-        // Si la API Web Share no está disponible, puedes proporcionar una alternativa
-        alert('La función de compartir no está disponible en este navegador.');
-      }
+    likeLink.addEventListener('click', () => {
+      // Incrementa el contador
+      likeCounter++;
+
+      // Guarda el contador en el almacenamiento local
+      saveLikeCount(likeCounter);
+
+      // Actualiza la visualización del contador
+      likeCountElement.textContent = likeCounter === 1 ? '1 Me gusta' : `${likeCounter} Me gusta`;
     });
   </script>
 
