@@ -3,6 +3,7 @@ const form = document.getElementById("form-chat");
 const input = document.getElementById("input");
 const messages = document.getElementById("messages");
 const chatContainer = document.getElementById("chat-container");
+const username = chatContainer.getAttribute("data-username");
 
 socket.on("loadMessages", (previousMessages) => {
     previousMessages.forEach((msg) => {
@@ -19,7 +20,7 @@ socket.on("loadMessages", (previousMessages) => {
     });
 });
 
-const username = chatContainer.getAttribute("data-username");
+
 form.addEventListener('submit', function(e){
     e.preventDefault();
     if(input.value){
