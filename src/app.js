@@ -56,7 +56,7 @@ app.use('/about', aboutRouter);
 app.use('/clubs', clubsRouter);
 app.use('/concerts', concertsRouter);
 app.use('/otherevents', othereventsRouter);
-app.use('/compra', formularioCompraRouter);
+app.use('/formulario_compra', formularioCompraRouter);
 app.use('/foro', foroRouter);
 
 app.use('/login', loginRouter);

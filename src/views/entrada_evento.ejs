@@ -3,14 +3,17 @@
  <section class="about_section layout_padding">
   <body>
     <div class="container">
+      <form method="post" action="/formulario_compra">
         <h1 id="textoMostrado">
-          <%= name %> 
+          <input type="text" id="name" name="name" value="<%= name %>"  readonly>
         </h1>
         <div class ="row">
           <div class="col-md-4">
             <div class="box">
              <div class="img-box">
-               <img id="imagenMostrada" width="300px" height="300px" alt="" src="<%= image %>"> 
+              <% if (image) { %>
+                <img id="imagenMostrada" width="300px" height="300px" alt="" src="<%= image %>"> 
+              <% } %>
               </div>
             </div> 
           </div>       
@@ -21,14 +24,15 @@
           </div>
           <div class="col-3">
             <h3>
-              <label class="badge badge-secundary">Precio: <%= price %> €</label>
+              <label for="price" class="badge badge-primary">Precio en euros (€)</label>
+              <input id="price" name="price" value=" <%= price %>" readonly>
           </div>
           <div class="col-md-5 offset-md-5">
               <h3>
-                <label class="badge badge-primary">Cantidad de Entradas:</label>
+                <label for="quantity" class="badge badge-primary">Cantidad de Entradas:</label>
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
               </h3>
-              <a href="/formulario">Comprar Entradas</a>
+              <input type="submit" value="Comprar las entradas">
               <div>
                 <% if (user) { %>
                   Este botón envia una petición de bizum a su telefono.
@@ -38,6 +42,7 @@
               </div>
           </div>
         </div>
+      </form>
     </div>
   </section>
   <%- include("footer", {}) %>
