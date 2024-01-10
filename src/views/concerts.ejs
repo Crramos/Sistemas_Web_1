@@ -30,15 +30,17 @@
                 <a href="#" id="likeLink">
                   <img src="images/like.png" alt="Me gusta">
                 </a>
-                <a href="">
-                  <img src="images/comment.png" alt="">
-                </a>
+                <a href="#" id="commentLink">
+                  <img src="images/comment.png" alt="Comentar">
+                </a>              
                 <a href="#" id="shareLink">
                   <img src="images/share.png" alt="Compartir">
                 </a>
                 <p id="likeCount">0 Me gusta</p>
               </div>
+              
             </div>
+            <div id="commentsContainer"></div>
             <div class="detail-box">
               <h4>
                 Duki's Concert - 8th June 2024
@@ -106,6 +108,30 @@ shareLink.addEventListener('click', () => {
 
       // Actualiza la visualización del contador
       likeCountElement.textContent = likeCounter === 1 ? '1 Me gusta' : `${likeCounter} Me gusta`;
+    });
+  </script>
+  <script>
+    // Función para agregar un comentario al contenedor
+    function addComment(commentText) {
+      const commentsContainer = document.getElementById('commentsContainer');
+      const commentElement = document.createElement('p');
+      commentElement.textContent = commentText;
+      commentsContainer.appendChild(commentElement);
+    }
+
+    // Obtén la referencia al elemento del botón de comentar
+    const commentLink = document.getElementById('commentLink');
+
+    // Agrega un evento de clic al botón de comentar
+    commentLink.addEventListener('click', () => {
+      // Pide al usuario que ingrese un comentario
+      const commentText = prompt('Escribe tu comentario:');
+
+      // Verifica si se ingresó un comentario
+      if (commentText !== null && commentText.trim() !== '') {
+        // Agrega el comentario al contenedor y muestra en pantalla
+        addComment(commentText);
+      }
     });
   </script>
 
