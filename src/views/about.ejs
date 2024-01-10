@@ -30,9 +30,6 @@
 
     </div>
   </section>
-  <section>
-    <button><a href="/chat_bot">Abrir Chat Bot</a></button>
-  </section>
 
   <section class="contact_section layout_padding">
     <div class="container">
@@ -138,5 +135,15 @@
       </div>
     </div>
   </section>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    chat-icon="https:&#x2F;&#x2F;cdn-icons-png.flaticon.com&#x2F;512&#x2F;2040&#x2F;2040946.png"
+    intent="WELCOME"
+    chat-title="AgentBot"
+    agent-id="01518210-7115-4f58-b7c2-170579062503"
+    language-code="es"
+  ></df-messenger>
+  
   <!-- end about section -->
   <%- include("footer", {}) %>
