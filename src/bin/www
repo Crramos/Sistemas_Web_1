@@ -9,6 +9,8 @@ var debug = require('debug')('sistemas-web:server');
 var http = require('http');
 const database = require('../database');
 
+const { Server } = require("socket.io");
+
 /**
  * Get port from environment and store in Express.
  */
@@ -21,7 +23,42 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+/**
+ * Socket
+ */
+const messageHistory = [];
+const io = new Server(server); 
+/* Evento de conexión */
+io.on('connection', (socket) => {      
+  console.log('a user connected');
 
+  socket.on('setUsername', (username) => {
+    socket.username = username;
+  });
+
+  // Escuchar el evento 'chat'
+   // Escuchar el evento 'chat'
+   socket.on('chat', (msg) => {
+    const user = socket.username || 'Unknown User';
+    console.log(`Mensaje recibido de ${user}: ${msg}`);
+    
+    const fullMessage = `${user}: ${msg}`;
+    messageHistory.push(fullMessage);
+
+    // Limitar el historial a, por ejemplo, los últimos 50 mensajes
+    if (messageHistory.length > 50) {
+        messageHistory.shift(); // Eliminar el mensaje más antiguo
+    }
+
+    io.emit('chat', fullMessage); // Broadcast solo el contenido del mensaje
+  });
+socket.emit('messageHistory', messageHistory);
+
+  /* Evento de desconexión */
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
 /**
  * Listen on provided port, on all network interfaces.
  */

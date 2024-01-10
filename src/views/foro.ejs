@@ -1,0 +1,14 @@
+<%- include("header", {}) %>
+<script>
+    var currentUser = '<%= user.name %>';
+</script>
+<h1>Forum</h1>
+<p>Welcome to PartyPlanner Forum, <%= user.name %>!</p>
+<ul id="messages"></ul>
+<form id="form-chat">
+    <input id="input-chat">
+    <button>Send</button>
+</form>
+
+
+<%- include("footer", {}) %>
