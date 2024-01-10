@@ -48,29 +48,37 @@
               <div class="contact_form-container">
                 <div>
                   <div>
-                    <input type="text" placeholder="Name">
+                    <input type="text" id="nameInput" placeholder="Name" required>
                   </div>
                   <div>
-                    <input type="email" placeholder="Email">
+                    <input type="email" id="emailInput" placeholder="Email" required>
                   </div>
                   <div>
-                    <input type="text" placeholder="Phone Number">
+                    <input type="text" id="phoneInput" placeholder="Phone Number" required>
                   </div>
                   <div class="">
-                    <input type="text" placeholder="Message" class="message_input">
+                    <input type="text" id="messageInput" placeholder="Message" class="message_input" required>
                   </div>
                   <div class="mt-5">
                
                     <button id="enviar">Send</button>
                     <div id="mensaje-enviado" style="display: none;">Mensaje enviado</div>
                     <script>
-                      document.getElementById("enviar").addEventListener("click", function() {
-                        document.getElementById("mensaje-enviado").style.display = "block";
-                        setTimeout(function() {
-                          document.getElementById("mensaje-enviado").style.display = "none";
-                        }, 2000); 
+                      document.getElementById("enviar").addEventListener("click", function () {
+                        // Verifica si todos los campos están llenos antes de permitir el envío
+                        if (
+                          document.getElementById("nameInput").value &&
+                          document.getElementById("emailInput").value &&
+                          document.getElementById("phoneInput").value &&
+                          document.getElementById("messageInput").value
+                        ) {
+                          // Aquí iría tu lógica para enviar el mensaje
+                          alert("Mensaje enviado");
+                        } else {
+                          alert("Por favor, completa todos los campos");
+                        }
                       });
-                      </script>
+                    </script>
                     
 
                   </div>
