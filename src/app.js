@@ -10,7 +10,7 @@ const aboutRouter = require('./routes/about');
 const clubsRouter = require('./routes/clubs');
 const concertsRouter = require('./routes/concerts');
 const othereventsRouter = require('./routes/otherevents');
-const entradaRouter = require('./routes/entrada_evento');
+const entrada_eventoRouter = require('./routes/entrada_evento');
 const formularioCompraRouter = require('./routes/formularioCompra');
 
 const loginRouter = require('./routes/login');
@@ -18,7 +18,6 @@ const registerRouter = require('./routes/register');
 const profileRouter = require('./routes/profile');
 const editProfileRouter = require('./routes/editProfile');
 const myticketsRouter = require('./routes/mytickets');
-const entrada_eventoRouter = require('./routes/entrada_evento');
 const foroRouter = require('./routes/foro');
 
 const app = express();

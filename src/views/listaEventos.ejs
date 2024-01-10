@@ -25,12 +25,14 @@
           </div>
           --->
           <div class="detail-box">
-              <h4 >
-                  <%=events[event].name%>
+            <form action="/entrada_evento" method="post">
+                <input type="text" id="name" name="name" value = '<%=events[event].name%>'  readonly>
               </h4>
               <p>
-                  <%=events[event].description%>
+                <%=events[event].description%>
               </p>
+              <button type="submit">Escoger</button>
+            </form>
           </div>
       </div>
     </li>

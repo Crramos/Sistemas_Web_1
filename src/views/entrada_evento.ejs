@@ -3,21 +3,25 @@
  <section class="about_section layout_padding">
   <body>
     <div class="container">
-        <h1 id="textoMostrado"></h1>
+        <h1 id="textoMostrado">
+          <%= name %> 
+        </h1>
         <div class ="row">
           <div class="col-md-4">
             <div class="box">
              <div class="img-box">
-               <img id="imagenMostrada" width="300px" height="300px" alt=""> 
+               <img id="imagenMostrada" width="300px" height="300px" alt="" src="<%= image %>"> 
               </div>
             </div> 
           </div>       
           <div class="col-8">
-            <h7 id="descripcionMostrada"></h7>
+            <h7 id="descripcionMostrada">
+              <%= description %> 
+            </h7>
           </div>
           <div class="col-3">
             <h3>
-              <label class="badge badge-secundary">Precio: 25€</label>
+              <label class="badge badge-secundary">Precio: <%= price %> €</label>
           </div>
           <div class="col-md-5 offset-md-5">
               <h3>
@@ -25,6 +29,13 @@
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
               </h3>
               <a href="/formulario">Comprar Entradas</a>
+              <div>
+                <% if (user) { %>
+                  Este botón envia una petición de bizum a su telefono.
+                <% } else { %>
+                  Redirige a un formulario para completar la compra.
+                <% } %>
+              </div>
           </div>
         </div>
     </div>
