@@ -6,6 +6,7 @@
 # Node artifact files
 node_modules/
 dist/
+*.sqlite
 
 # Compiled Java class files
 *.class
@@ -39,7 +40,6 @@ Thumbs.db
 *.app
 *.exe
 *.war
-*.sqlite
 
 # Large media files
 *.mp4
