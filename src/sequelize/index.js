@@ -21,7 +21,6 @@ async function resetUser(){
     const count = await sequelize.models.user.count();
     const users = [
         {email: 'user'},
-        {email: 'pepe'},
         {email: 'admin'}
     ];
 
@@ -60,41 +59,10 @@ async function resetEvent(){
     }
 }
 
-async function resetUserEvent(){
-    const count = await sequelize.models.userEvent.count();
-    const events = [
-        {name: 'eventoA'},
-        {name: 'eventoB'},
-        {name: 'eventoB'},
-        {name: 'eventoC'}
-    ];
-
-    const users = [
-        'user',
-        'user',
-        'pepe',
-        'admin'
-    ];
-
-    if (count == 0){
-        for (let index = 0; index < events.length; index++){
-            match[index].price = index;
-            match[index].quantity = index;
-            match[index].username = users[index];
-            match[index].eventname = events[index].name;
-        }
-        await sequelize.models.userEvent.bulkCreate(match);
-        logger.info('Creados eventos usuario iniciales');
-    } else {
-        logger.info('La DB event user ya estaba inicializada');
-    }
-}
-
 async function reset(){
     await sequelize.sync({force: true}); // false para que no se reinice la DB
     resetUser();
     resetEvent();
-    resetUserEvent();
 }
 
 reset();
