@@ -1,37 +1,50 @@
 <%- include("header", {}) %>
-  <!-- contact section -->
-  <section class="about_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="detail-box">
-            <h6>
-              My tickets
-            </h6>
-            <p>
-                Here you can see your tickets
-            </p>
-            <!-- Entrada 1 -->
-            <div class="ticket">
-              <h2>Discoteca 1</h2>
-                <p>Fecha: 20 de noviembre de 2023</p>
-                <p>Ubicación: Ciudad 1</p>
-            </div>
-  
-              <!-- Entrada 2 -->
-            <div class="ticket">
-              <h2>Discoteca 2</h2>
-                <p>Fecha: 25 de noviembre de 2023</p>
-                <p>Ubicación: Ciudad 2</p>
-            </div>          
+<!-- contact section -->
+<section class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="detail-box">
+          <h6>
+            My tickets
+          </h6>
+          <p>
+            Here you can see your tickets
+          </p>
+          <!-- Entrada 1 -->
+          <div class="ticket" id="ticket1">
+            <h2>Discoteca 1</h2>
+            <p>Fecha: 20 de noviembre de 2023</p>
+            <p>Ubicación: Ciudad 1</p>
+            <button class="eliminar-ticket" onclick="eliminarTicket('ticket1')">Eliminar</button>
+          </div>
+
+          <!-- Entrada 2 -->
+          <div class="ticket" id="ticket2">
+            <h2>Discoteca 2</h2>
+            <p>Fecha: 25 de noviembre de 2023</p>
+            <p>Ubicación: Ciudad 2</p>
+            <button class="eliminar-ticket" onclick="eliminarTicket('ticket2')">Eliminar</button>
           </div>
         </div>
-      </div>         
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  
+<!-- end contact section -->
 
+<script>
+  function eliminarTicket(ticketId) {
+    // Obtén la referencia a la div del ticket mediante su ID
+    var ticketDiv = document.getElementById(ticketId);
 
-  <!-- end contact section -->
-  <%- include("footer", {}) %>
+    // Verifica si la div existe antes de intentar ocultarla
+    if (ticketDiv) {
+      // Oculta la div del ticket
+      ticketDiv.style.display = 'none';
+    }
+  }
+</script>
+
+<%- include("footer", {}) %>
