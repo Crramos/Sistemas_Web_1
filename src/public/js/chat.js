@@ -30,7 +30,10 @@ socket.on("chat", (data) => {
 
 function displayMessage(data) {
     const item = document.createElement("li");
-    item.textContent = `${data.username}: ${data.message}`;
+    const userEmail = data.mentionedUser || data.username;
+    const displayedUsername = userEmail.split('@')[0];
+
+    item.textContent = `${displayedUsername}: ${data.message}`;
 
     if (data.username === username) {
         item.classList.add("current-user-message");
@@ -42,9 +45,8 @@ function displayMessage(data) {
 }
 
 function extractMentionedUser(messageText) {
-    // Obtener el nombre antes del @
+
     const mentionedUser = messageText.split('@')[0].trim();
 
-    // Devolver solo el nombre de usuario o null si no se encuentra ningún @ en el mensaje
     return mentionedUser !== messageText ? mentionedUser : null;
 }
