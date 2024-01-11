@@ -16,7 +16,7 @@
             <h2>Discoteca 1</h2>
             <p>Fecha: 20 de noviembre de 2023</p>
             <p>Ubicación: Ciudad 1</p>
-            <button class="eliminar-ticket" onclick="eliminarTicket('ticket1')">Eliminar</button>
+            <button class="eliminar-ticket" onclick="confirmarEliminarTicket('ticket1')">Eliminar</button>
           </div>
 
           <!-- Entrada 2 -->
@@ -24,7 +24,7 @@
             <h2>Discoteca 2</h2>
             <p>Fecha: 25 de noviembre de 2023</p>
             <p>Ubicación: Ciudad 2</p>
-            <button class="eliminar-ticket" onclick="eliminarTicket('ticket2')">Eliminar</button>
+            <button class="eliminar-ticket" onclick="confirmarEliminarTicket('ticket2')">Eliminar</button>
           </div>
         </div>
       </div>
@@ -35,6 +35,17 @@
 <!-- end contact section -->
 
 <script>
+  function confirmarEliminarTicket(ticketId) {
+    // Muestra un mensaje de confirmación y captura la respuesta
+    var confirmacion = confirm('¿Seguro que quieres cancelar la entrada?');
+
+    // Si el usuario confirma, oculta la div del ticket
+    if (confirmacion) {
+      eliminarTicket(ticketId);
+      alert('Entrada cancelada');
+    }
+  }
+
   function eliminarTicket(ticketId) {
     // Obtén la referencia a la div del ticket mediante su ID
     var ticketDiv = document.getElementById(ticketId);
