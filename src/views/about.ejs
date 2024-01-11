@@ -128,13 +128,11 @@
             </div>
           </div>
         </a>
-        <a href="">
-          <div class="item ">
-            <div class="img-box box-1">
-
-            </div>
+        <a href="#" id="mapsLink">
+          <div class="item">
+            <div class="img-box box-1"></div>
             <div class="detail-box">
-              <p>
+              <p id="direccion">
                 Av. de Concha Espina, 1, 28036
               </p>
             </div>
@@ -153,6 +151,21 @@
   
       // Asigna el enlace "mailto" al atributo href del enlace
       this.href = mailtoLink;
+    });
+  </script>
+  <script>
+    document.getElementById("mapsLink").addEventListener("click", function (event) {
+      // Evita que el enlace se comporte como un enlace estándar
+      event.preventDefault();
+  
+      // Obtiene la dirección del elemento de detalles
+      var direccion = document.getElementById("direccion").innerText;
+  
+      // Construye el enlace de Google Maps con la dirección
+      var googleMapsLink = "https://www.google.com/maps?q=" + encodeURIComponent(direccion);
+  
+      // Abre Google Maps en una nueva pestaña o ventana
+      window.open(googleMapsLink, "_blank");
     });
   </script>
 
