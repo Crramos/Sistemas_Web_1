@@ -32,11 +32,12 @@
                 <label for="quantity" class="badge badge-primary">Cantidad de Entradas:</label>
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
               </h3>
-              <input type="submit" value="Comprar las entradas">
               <div>
                 <% if (user) { %>
+                  <input type="submit" formaction="/" value="Comprar las entradas">
                   Este botón envia una petición de bizum a su telefono.
                 <% } else { %>
+                  <input type="submit" value="Comprar las entradas">
                   Redirige a un formulario para completar la compra.
                 <% } %>
               </div>
