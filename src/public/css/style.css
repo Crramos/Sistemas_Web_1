@@ -859,37 +859,14 @@ a:focus {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-#chat-box {
-  height: 200px;
+/* Styling for the chat box (message display area) */
+#messages {
+  list-style-type: none;
+  max-height: 700px;
   overflow-y: scroll;
 }
 
-.message-bot {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
-  max-width: 70%;
-}
-
-#user-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#send-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
+/* Styling for the chat input and send button */
 #form-chat {
   background: lightgray;
   padding: 5px;
@@ -903,13 +880,22 @@ a:focus {
 
 #input {
   flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
-#messages {
-  list-style-type: none;
+#send-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Estilo para mensajes enviados por otros usuarios */
+/* Styling for other user messages */
 .other-user-message {
   background: lightblue;
   border-radius: 5px;
@@ -917,7 +903,7 @@ a:focus {
   padding: 10px;
 }
 
-/* Estilo para mensajes enviados por el usuario actual */
+/* Styling for current user messages */
 .current-user-message {
   background: lightgreen;
   border-radius: 5px;
@@ -925,3 +911,8 @@ a:focus {
   padding: 10px;
 }
 
+/* Styling for the chat title */
+#chat-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
