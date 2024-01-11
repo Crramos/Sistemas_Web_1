@@ -11,6 +11,7 @@ const concertsRouter = require('./routes/concerts');
 const othereventsRouter = require('./routes/otherevents');
 const entrada_eventoRouter = require('./routes/entrada_evento');
 const formularioCompraRouter = require('./routes/formularioCompra');
+const adminRouter = require('./routes/adminsection');
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
@@ -58,6 +59,7 @@ app.use('/otherevents', othereventsRouter);
 app.use('/formulario_compra', formularioCompraRouter);
 app.use('/foro', foroRouter);
 
+app.use('/adminsection', adminRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/profile', profileRouter);
