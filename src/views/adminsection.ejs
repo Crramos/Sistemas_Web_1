@@ -1,4 +1,73 @@
 <%- include("header", {}) %>
-<p>Eres Admin</p>
+
+<button id="agregarNovedad">Agregar Novedad</button>
+
+<%- include("novedades", {}) %>
+
+
+
+<!-- Agrega un modal para introducir la información de la nueva novedad -->
+<div id="nuevaNovedadModal" style="display: none;">
+  <h3>Nueva Novedad</h3>
+  <form id="nuevaNovedadForm">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" required><br>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" required></textarea><br>
+
+    <label for="imagen">URL de la Imagen:</label>
+    <input type="text" id="imagen" name="imagen" required><br>
+
+    <button type="submit">Agregar</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('agregarNovedad').addEventListener('click', function() {
+    // Muestra el modal para introducir la información de la nueva novedad
+    document.getElementById('nuevaNovedadModal').style.display = 'block';
+  });
+
+  // Agrega un evento de envío al formulario
+  document.getElementById('nuevaNovedadForm').addEventListener('submit', function(event) {
+    // Evita que se recargue la página al enviar el formulario
+    event.preventDefault();
+
+    // Obtiene los valores del formulario
+    var titulo = document.getElementById('titulo').value;
+    var descripcion = document.getElementById('descripcion').value;
+    var imagen = document.getElementById('imagen').value;
+
+    // Construye el nuevo div con la información ingresada
+    var nuevaNovedad = `
+      <div class="col-md-4">
+        <div class="box">
+          <div class="img-box">
+            <div class="action">
+              <a href="/nuevo_evento">
+                <img src="${imagen}" height="300px" width="300px" alt="">
+              </a>
+            </div>
+          </div>
+
+          <div class="detail-box">
+            <h4>${titulo}</h4>
+            <p>${descripcion}</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Agrega la nueva novedad al final de la sección de novedades
+    document.querySelector('.row').innerHTML += nuevaNovedad;
+
+    // Oculta el modal después de agregar la novedad
+    document.getElementById('nuevaNovedadModal').style.display = 'none';
+
+    // Limpia los campos del formulario
+    document.getElementById('nuevaNovedadForm').reset();
+  });
+</script>
 
 <%- include("footer", {}) %>
