@@ -1,3 +1,7 @@
+<div class="search-container">
+  <label for="eventSearch">Search Events:</label>
+  <input type="text" id="eventSearch" oninput="filterEvents()" placeholder="Type to search...">
+</div>
 <section class="news_section layout_padding">
     <div class="container">
       <div class="d-flex flex-column align-items-end">
@@ -24,7 +28,7 @@
             </div>
       
             <div class="detail-box">
-              <h4>
+              <h4 data-event-title="Red Bull International - 2024">
                 Red Bull International - 2024
               </h4>
               <p>
@@ -33,6 +37,83 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <div class="action">
+                <a href="/entrada_evento" onclick="guardarImagen('images/chuty.jpg', 'FMS International - 2024', 'The FMS International Battle of the Roosters, is an annual international freestyle rap competition organized by Red Bull. This event brings together talented and skilled MCs (Master of Ceremonies) or rappers from around the world to compete in a fierce and electrifying battle of words. In the following season, you can attend to the Wizink Center and live this experience in live. Don`t waste this opportunity !')">
+                  <img src="images/chuty.jpg" height = "300px" width="300px" alt="">
+                </a>
+              </div>
+            </div>
+      
+            <div class="detail-box">
+              <h4 data-event-title="FMS International - 2024">
+                FMS International - 2024
+              </h4>
+              <p>
+                The FMS International Battle of the Roosters, is an annual international freestyle rap competition organized by Red Bull. This event brings together talented and skilled MCs (Master of Ceremonies) or rappers from around the world to compete in a fierce and electrifying battle of words. In the following season, you can attend to the Wizink Center and live this experience in live. Don't waste this opportunity !
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <div class="img-box">
+              <div class="action">
+                <a href="/entrada_evento" onclick="guardarImagen('images/duki.jpg', 'Duki - 2024', 'DUKI !')">
+                  <img src="images/duki.jpg" height = "300px" width="300px" alt="">
+                </a>
+              </div>
+            </div>
+      
+            <div class="detail-box">
+              <h4 data-event-title="Duki - 2024">
+                Duki - 2024
+              </h4>
+              <p>
+                Duki on Santiago Bernabeu. Dont waste the opportunity!
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  <script>
+    function filterEvents() {
+      var input, filter, events, event, title, i;
+      input = document.getElementById("eventSearch");
+      filter = input.value.toUpperCase();
+      events = document.getElementsByClassName("box");
+  
+      for (i = 0; i < events.length; i++) {
+        title = events[i].querySelector("h4[data-event-title]");
+        if (title) {
+          if (title.getAttribute("data-event-title").toUpperCase().indexOf(filter) > -1) {
+            events[i].style.display = "";
+          } else {
+            events[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .search-container {
+  margin-bottom: 20px;
+}
+
+#eventSearch {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.box {
+  display: block;
+  margin-bottom: 20px;
+}   
+  </style>
+  
